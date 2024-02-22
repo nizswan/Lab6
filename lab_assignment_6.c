@@ -1,7 +1,20 @@
+//Cristian McGee Cop3502C Lab 6
 #include <stdio.h>
+#include <stdlib.h>
 
 int search(int numbers[], int low, int high, int value) 
 {
+	if(high >= low){
+        int middle = (low + high) / 2;
+        if(numbers[middle] == value){
+            return middle;
+        }
+        else if(numbers[middle] > value) {
+            return search(numbers, low, middle - 1, value);
+        } else if (numbers[middle] < value){
+            return search(numbers, middle + 1, high, value);
+        }
+    }
 	return -1;
 }
 
